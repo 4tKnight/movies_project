@@ -1,0 +1,289 @@
+/* https://fonts.google.com */
+@import url("https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700");
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i");
+
+/* applies styles to all elements in the HTML document */
+* {
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+  /* When set to "border-box", the specified width and height values include the content, padding, and border.
+  This ensures that the total dimensions of an element remain consistent regardless of the padding or border applied */
+}
+
+/* the font variables are defined within the :root pseudo-class selector.
+  The :root selector represents the root element of the document */
+:root {
+  --font-roboto: "Roboto Slab", serif;
+  --font-raleway: "Raleway", sans-serif;
+}
+
+body {
+  font-family: var(--font-roboto);
+  background-color: #212426;
+}
+
+.app {
+  /* Padding is the space between the content of an element and its border
+   For example, if the root font size is set to 16px, the padding will be 64px (4 times 16px).*/
+  padding: 4rem;
+
+  /* The flex display property allows you to create flexible layouts by using flexible boxes.
+  It enables you to control the alignment, distribution, and ordering of elements within the container. */
+  display: flex;
+
+  /*  This sets the direction of the flex container's main axis to be vertical, resulting in a column layout.
+  The flex items will be stacked vertically inside the .app element */
+  flex-direction: column;
+
+  justify-content: center; /*horizontally*/
+  align-items: center; /*vertically*/
+}
+
+h1 {
+  font-size: 3rem;
+  letter-spacing: 0.9px; /*The letter-spacing property adjusts the space between characters.*/
+
+  /* This creates a linear gradient background for the text of the <h1> element.
+  The gradient starts with the color rgba(249, 211, 180, 1) at the beginning of the text and transitions to rgba(249, 211, 180, 0) at the end of the text.
+  The rgba() function specifies a color using red, green, blue, and alpha (transparency) values */
+  background: linear-gradient(
+    90deg,
+    rgba(249, 211, 180, 1) 0%,
+    rgba(249, 211, 180, 0) 100%
+  );
+  width: fit-content; /* The element will expand horizontally to accommodate the content within it*/
+  background-clip: text; /* This property specifies that the background gradient should be clipped to the text of the <h1> element. Only the area covered by the text will show the gradient background.*/
+
+  /*  WebKit-based browsers, such as Safari and older versions of Chrome and Opera,
+  support specific vendor-prefixed CSS properties (e.g., -webkit-box-shadow),
+  non-WebKit browsers may use standardized CSS properties that are not vendor-prefixed */
+  -webkit-background-clip: text;
+
+  /* This property makes the text color transparent, effectively rendering the text invisible.
+  The transparent text color allows the gradient background to show through */
+  -webkit-text-fill-color: transparent;
+}
+
+.search {
+  width: 71%; /*sets the width of the .search element to 71% of its parent container. The element will occupy 71% of the available width*/
+  margin: 4rem 0 2rem; /*TRBL, sets the left and right margins to 0*/
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 1.5rem 1.75rem; /*T-B, L-R. Padding creates space between the content and the element's border.*/
+  border-radius: 3rem; /*creates 3rem rounded corners*/
+  background: #1f2123;
+
+  /* Creates a 3D-like*/
+  /* By providing multiple shadow values separated by commas, you can create layered or multiple shadows for an element.
+  In this example, the element will have two shadows applied: one positioned to the bottom right and the other to the top left,
+  giving the appearance of a 3D effect or depth */
+
+  /* horizontal offset, vertical offset, blur and shadow color */
+  -webkit-box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
+  box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
+  /* box shadow has the same effect as `-webkit-box-shadow` but is supported by non-WebKit browsers */
+}
+
+.search input {
+  /*This sets the flex property of the `input element` to 1. Allowing it to grow and fill the available space within its parent container
+  If set to 0: The element will not grow or shrink based on available space.
+  If set to 2: The input element will have a higher growth factor compared to other flex items within the same container.
+  It will occupy more space and grow twice as much as flex items with a flex value of 1.
+  Remember: The flex property is a shorthand property that combines three individual flex properties: flex-grow, flex-shrink, and flex-basis */
+
+  flex: 1;
+  font-size: 1.5rem;
+  font-family: var(--font-raleway);
+  font-weight: 500;
+  padding-right: 1rem;
+
+  border: none;
+  outline: none; /*This removes the outline or focus ring that appears around the input element when it is in focus*/
+  color: #a1a1a1; /*text color*/
+  background: #1f2123;
+}
+
+/* targets the img element inside an element with the class name .search and applies the following styles */
+.search img {
+  width: 35px;
+  height: 35px;
+  cursor: pointer; /* This sets the mouse cursor to change to a pointer when hovering over the img element. It indicates to the user that the image is clickable or interactive */
+}
+
+/* .search button {
+  padding: 20px 40px;
+  border-radius: 0.5rem;
+  margin-left: 15px;
+  color: #a1a1a1;
+  font-family: var(--font-raleway);
+  font-weight: 900;
+  letter-spacing: 0.75px;
+  font-size: 1.25rem;
+  cursor: pointer;
+
+  background: #1f2123;
+  -webkit-box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
+  box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
+} */
+
+.container {
+  width: 100%; /*It means the element will take up the full width available*/
+  margin-top: 3rem; /*This specifies that the .container element should use flexbox layout. */
+
+  /* The flex display property allows you to create flexible layouts by using flexible boxes.
+  It enables you to control the alignment, distribution, and ordering of elements within the container. */
+  display: flex;
+
+  justify-content: center; /*horizontally*/
+  align-items: center; /*vertically*/
+  flex-wrap: wrap; /*This allows flex items to wrap onto multiple lines if they exceed the width of the .container. */
+}
+
+.movie {
+  width: 310px;
+  height: 460px;
+  margin: 1.5rem;
+
+  position: relative;
+  border-radius: 12px;
+  /* overflow: hidden; */
+  border: none; /*This removes the border from the .movie element. Making the element borderless*/
+
+  /* This specifies the transition effect for all properties of the .movie element. 
+  It defines that any changes to the element's properties should have a duration of 0.4 seconds and
+  follow a specific cubic-bezier timing function */
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0, 1);
+
+  /* This adds a box-shadow effect to the .movie element.
+  It creates a shadow with horizontal offset 0px, vertical offset 13px, blur radius 10px, and spread radius -7px.
+  The rgba(0, 0, 0, 0.1) value specifies the color and opacity of the shadow. */
+  box-shadow: 0px 13px 10px -7px rgba(0, 0, 0, 0.1);
+}
+
+/* A pseudo-class selector that targets elements based on their position within their parent container.*/
+/* READ MORE ON PSEUDO-CLASS SELECTORS */
+.movie div:nth-of-type(1) {
+  position: absolute;
+  padding: 16px;
+  width: 100%; /*This sets the width of the targeted div element to 100%, making it occupy the full width of its parent container.*/
+  opacity: 0;
+  top: 0;
+  color: #f9d3b4;
+}
+
+.movie:hover {
+  box-shadow: 0px 30px 18px -8px rgba(0, 0, 0, 0.1);
+  transform: scale(1.05, 1.05);
+}
+
+.movie div:nth-of-type(2) {
+  width: 100%;
+  height: 100%;
+}
+
+.movie div:nth-of-type(2) img {
+  height: 100%;
+  width: 100%;
+}
+
+.movie div:nth-of-type(3) {
+  z-index: 2;
+  background-color: #343739;
+  padding: 16px 24px 24px 24px;
+
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.movie div:nth-of-type(3) span {
+  font-family: "Raleway", sans-serif;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 2px;
+  font-weight: 500;
+  color: #f0f0f0;
+}
+
+.movie div:nth-of-type(3) h3 {
+  margin-top: 5px;
+  font-family: "Roboto Slab", serif;
+  color: #f9d3b4;
+}
+
+.movie:hover div:nth-of-type(2) {
+  height: 100%;
+  opacity: 0.3;
+}
+
+.movie:hover div:nth-of-type(3) {
+  background-color: transparent;
+}
+
+.movie:hover div:nth-of-type(1) {
+  opacity: 1;
+}
+
+/* Media queries are commonly used in responsive web design to create styles that adapt and respond to different screen sizes,
+allowing for a better user experience across various devices.
+The media query is targeting screens with a maximum width of 600 pixels. 
+This means that the styles inside the media query will only be applied if the screen width is 600 pixels or less.*/
+@media screen and (max-width: 600px) {
+  .app {
+    padding: 4rem 2rem;
+  }
+
+  .search {
+    padding: 1rem 1.75rem;
+    width: 100%;
+  }
+
+  .search input {
+    font-size: 1rem;
+  }
+
+  .search img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .app {
+    padding: 4rem 1rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .container {
+    margin-top: 2rem;
+  }
+
+  .movie {
+    width: "100%";
+    margin: 1rem;
+  }
+}
+
+/* WHEN NO MOVIES FOUND */
+.empty {
+  width: 100%;
+  margin-top: 3rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.empty h2 {
+  font-size: 1.25rem;
+  color: #f9d3b4;
+  font-family: var(--font-raleway);
+}
